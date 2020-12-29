@@ -2,6 +2,7 @@
 
 ### Introduction
 Based on recommendations from https://alphacybersecurity.tech/how-to-secure-your-kali-linux-machine/
+
 The following script has the steps in laid out as a bash script.
 
 ## Features
