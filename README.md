@@ -12,7 +12,7 @@ The following script has the steps in laid out as a bash script.
 4. Add new user
 
 ## Notes
-To note this script will require sudo access to run properly.
+This script will require sudo access to run properly.
 
 ## Improvements (Not Done)
 1. Allow additional flags to be included
