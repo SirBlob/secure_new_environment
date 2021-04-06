@@ -3,8 +3,14 @@
 # Will require sudo access
 # Based on https://alphacybersecurity.tech/how-to-secure-your-kali-linux-machine/
 
-printf -- '-%.0s' {1..100}; echo ""
+function seperator()
+{
+	printf -- '-%.0s' {1..100}; echo ""
+}
+
+seperator
 PS3='Enter your choice: ' #Automatically used by select
+seperator
 option=("Change your password" "apt-get Update / Upgrade" "Change Default SSH Key" "Add New User")
 aptget=("apt-get update" "apt-get upgrade" "Both" "apt-get dist-upgrade")
 
@@ -12,14 +18,14 @@ select o in "${option[@]}"
 do
 	case $o in
 		"Change your password") #Change current user password
-			printf -- '-%.0s' {1..100}; echo ""
+			seperator
 			echo "Changing current user password"
-			printf -- '-%.0s' {1..100}; echo ""
+			seperator
 			passwd	;;
 		"apt-get Update / Upgrade") #Upgrade / Update 
-			printf -- '-%.0s' {1..100}; echo ""
+			seperator
 			echo "Please enter a choice"
-			printf -- '-%.0s' {1..100}; echo ""
+			seperator
 			select a in "${aptget[@]}"
 			do
 				case $a in 
@@ -35,16 +41,16 @@ do
 					"Exit")
 						break ;;
 					*) 
-						printf -- '-%.0s' {1..100}; echo ""
+						seperator
 						echo "Invalid Choice"
-						printf -- '-%.0s' {1..100}; echo "" ;;
+						seperator
 				esac
 			done ;;
 		"Change Default SSH Key") #Reset default SSH Key
-			printf -- '-%.0s' {1..100}; echo ""
+			seperator
 			echo "Resetting SSH Key and creating backup"
 			echo "Backing Up Current Keys in new directory: /etc/ssh/backup_keys"
-			printf -- '-%.0s' {1..100}; echo ""
+			seperator
 			cd /etc/ssh
 		       	if [ -d backup_keys ] 
 			then
@@ -63,13 +69,13 @@ do
 			fi
 			;;
 		"Add New User") #Add a new user
-			printf -- '-%.0s' {1..100}; echo ""
+			seperator
 			echo "Please specify username"
 			read -p "Username: " newuser
 			adduser $newuser ;;
 		*) 
-			printf -- '-%.0s' {1..100}; echo ""
+			seperator
 			echo "Invalid Choice $o"
-			printf -- '-%.0s' {1..100}; echo "" ;;
+			seperator
 	esac
 done
