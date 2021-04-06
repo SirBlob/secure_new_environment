@@ -17,4 +17,4 @@ This script will require sudo access to run properly.
 ## Improvements (Not Done)
 1. Allow additional flags to be included
 2. Allow user to reverse what was done
-3. Clean up script
+~~3. Clean up script~~ (4/6/2021)
